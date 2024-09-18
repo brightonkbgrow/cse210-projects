@@ -7,7 +7,23 @@ class Program
         Console.Write("What did you score? ");
         string input = Console.ReadLine();
         int score = int.Parse(input);
-
+        string letter;
+                if (score >= 90)
+        {
+            letter = ("A");
+        }
+        else if (score >= 80)
+        {
+            letter = ("B");
+        }
+        else if (score >= 70)
+        {
+            letter = ("C");
+        }
+        else if (score < 70)
+        {
+            letter = ("F");
+        }
         if (score >= 90)
         {
             Console.WriteLine($"Your grade is {letter}. You Passed!");
@@ -24,21 +40,6 @@ class Program
         {
             Console.WriteLine($"Your grade is {letter}. You failed.");
         }
-        if (score >= 90);
-        {
-            letter = ("A");
-        }
-        else if (score >= 80);
-        {
-            letter = ("B");
-        }
-        else if (score >= 70);
-        {
-            letter = ("C");
-        }
-        else if (score < 70);
-        {
-            letter = ("F");
-        }
+
     }
 }
