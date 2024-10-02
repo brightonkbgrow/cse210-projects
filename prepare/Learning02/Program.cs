@@ -17,6 +17,18 @@ public class Program
         job2._startYear = 2014;
         job2._endYear = 2015;
 
+        Job job3 = new Job();
+        job1._jobTitle = "Lot Technician";
+        job1._company = "Larry H Miller";
+        job1._startYear = 2019;
+        job1._endYear = 2021;
+
+        Job job4 = new Job();
+        job2._jobTitle = "Hardware Specialist";
+        job2._company = "Ace Hardware";
+        job2._startYear = 2022;
+        job2._endYear = 2023;
+
         Resume myResume = new Resume();
         myResume._name = "Brighton Grow";
 
