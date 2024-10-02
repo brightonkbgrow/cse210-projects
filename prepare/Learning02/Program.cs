@@ -34,6 +34,8 @@ public class Program
 
         myResume._jobs.Add(job1);
         myResume._jobs.Add(job2);
+        myResume._jobs.Add(job3);
+        myResume._jobs.Add(job4);
 
         myResume.ShowResume();
     }
