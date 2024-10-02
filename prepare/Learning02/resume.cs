@@ -3,16 +3,21 @@ using System;
 public class Resume
 {
     //Attrubutes
-    string _name;
-    List<Jobs> _jobs;
+    public string _name;
+    public List<Job> _jobs = new List<Job>();
 
 
     //Behaviors
     public void ShowResume()
     {
-        string result = @"";
-        result = $"{_name} \n{_jobTitle} ({_company}) {_startYear}-{endYear}";
+        Console.WriteLine($"{_name}'s Resume");
+        Console.WriteLine("Work Expirence: ");
 
-        Console.WriteLine(result);
+        foreach (Job job in _jobs)
+        {
+            job.ShowResume();
+        }
+
+
     }
 }
