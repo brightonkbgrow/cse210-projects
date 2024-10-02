@@ -3,10 +3,10 @@ using System;
 public class Job
 {
     //Attrubutes
-    string _company;
-    string _jobTitle;
-    string _startYear;
-    string _endYear;
+    public string _company;
+    public string _jobTitle;
+    public string _startYear;
+    public string _endYear;
 
     //Behaviors
     public void jobInfo()
