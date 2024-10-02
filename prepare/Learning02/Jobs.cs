@@ -11,11 +11,8 @@ public class Job
     //Behaviors
     public void ShowResume()
     {
-        string result = @"";
-        result += $"Company: {_company}\n";
-        result += $"Job Title: {_jobTitle}\n";
-        result += $"Start Year: {_startYear}\n";
-        result += $"End Year: {_endYear}\n";
-        Console.WriteLine(result);
+         Console.WriteLine($"{_jobTitle} ({_company})\n {_startYear}-{_endYear}");
+
+       
     }
 }
