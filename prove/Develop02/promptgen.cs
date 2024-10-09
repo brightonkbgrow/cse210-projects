@@ -11,7 +11,7 @@ public class PromptGen
         "what was a wierd thing you saw today?"
     };
 
-    // Behaviors
+
     public string GetRandomPrompt()
     {
         Random rand = new Random();

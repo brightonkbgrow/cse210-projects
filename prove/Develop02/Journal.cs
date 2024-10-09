@@ -21,9 +21,9 @@ public class Journal
         }
     }
 
-    public void SaveToFile(string filename)
+    public void SaveEntry(string filename)
     {
-        using (StreamWriter writer = new StreamWriter(filename))
+        using (StreamWriter writer = new StreamWriter("savedJournal.txt"))
         {
             foreach (string entry in entries)
             {
@@ -32,12 +32,12 @@ public class Journal
         }
     }
 
-    public void LoadFromFile(string filename)
+    public void LoadEntry(string filename)
     {
-        if (File.Exists(filename))
+        if (File.Exists("savedJournal.txt"))
         {
             entries.Clear();
-            string[] lines = File.ReadAllLines(filename);
+            string[] lines = File.ReadAllLines("savedJournal.txt");
             foreach (string line in lines)
             {
                 entries.Add(line);
@@ -45,7 +45,7 @@ public class Journal
         }
         else
         {
-            Console.WriteLine("File not found.");
+            Console.WriteLine("File not found");
         }
     }
 }
