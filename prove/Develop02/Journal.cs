@@ -5,14 +5,12 @@ using System.IO;
 public class Journal
 {
     private List<string> entries = new List<string>();
-
     public void AddEntry(string prompt, string response)
     {
         string date = DateTime.Now.ToShortDateString();
         string entry = $"{date} | Prompt: {prompt} | Response: {response}";
         entries.Add(entry);
     }
-
     public void DisplayJournal()
     {
         foreach (string entry in entries)
@@ -20,7 +18,6 @@ public class Journal
             Console.WriteLine(entry);
         }
     }
-
     public void SaveEntry(string filename)
     {
         using (StreamWriter writer = new StreamWriter("savedJournal.txt"))
@@ -31,7 +28,6 @@ public class Journal
             }
         }
     }
-
     public void LoadEntry(string filename)
     {
         if (File.Exists("savedJournal.txt"))
