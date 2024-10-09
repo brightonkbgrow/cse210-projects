@@ -1,13 +1,21 @@
 using System;
 
-public class PromptGenerator
+public class PromptGen
 {
     // Attributes
-    private string _list; // or you can name it public string List;
+    public List<string> prompts = new List<string>
+    {
+        "What did you eat today?",
+        "Did you have any plans today? How did it go?",
+        "Who did you see today? What did you talk about?",
+        "what was a wierd thing you saw today?"
+    };
 
     // Behaviors
-    public void ChoosePrompt()
+    public string GetRandomPrompt()
     {
-        Console.WriteLine("prompt");
+        Random rand = new Random();
+        return prompts[rand.Next(prompts.Count)];
     }
 }
+
