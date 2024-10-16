@@ -7,6 +7,7 @@ class Program
         Fraction fraction = new Fraction();
 
         Console.WriteLine("Lets make a fraction");
-        Console.WriteLine(fraction.ShowFraction());
+        Console.WriteLine(fraction.GetFractionString());
+        Console.WriteLine(fraction.GetDecimalValue());
     }
 }

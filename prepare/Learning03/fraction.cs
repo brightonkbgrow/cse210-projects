@@ -8,24 +8,24 @@ public class Fraction
     public Fraction()
     {
         _numerator = 1;
-        _denominator = 1;
+        _denominator = 3;
     }
-    public int GetNumerator()
+    public int Numerator
     {
-        return _numerator;
+        get {return _numerator;}
+        set { _numerator = value;}
     }
-    public int GetDenominator()
+    public int GetDenominator
     {
-        return _denominator; 
+        get {return _denominator;}
+        set { _denominator = value;}
     }
-    public void SetFraction(int numerator, int denominator)
+    public string GetFractionString()
     {
-        _numerator = numerator;
-        _denominator = denominator;
-
+        return $"{_numerator}/{_denominator}";
     }
-    public int ShowFraction()
+    public float GetDecimalValue()
     {
-        return _numerator/_denominator;
+        return (float)_numerator/_denominator;
     }
 }
