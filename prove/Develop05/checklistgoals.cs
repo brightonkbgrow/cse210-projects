@@ -21,11 +21,11 @@ public class ChecklistGoal : Goal
             CurrentCount++;
             if (CurrentCount == TargetCount)
             {
-                return Points + BonusPoints;  // Add bonus points on reaching the target
+                return Points + BonusPoints; 
             }
-            return Points;  // Regular points for each event
+            return Points;
         }
-        return 0;  // No points if the target count is reached
+        return 0;
     }
 
     public override string DisplayStatus()

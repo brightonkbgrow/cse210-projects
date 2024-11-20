@@ -10,9 +10,9 @@ public class SimpleGoal : Goal
         if (!IsCompleted)
         {
             IsCompleted = true;
-            return Points;  // Return points when the goal is completed
+            return Points; 
         }
-        return 0;  // No points if the goal is already completed
+        return 0; 
     }
 
     public override string DisplayStatus()

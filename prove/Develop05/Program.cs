@@ -9,11 +9,10 @@ class Program
     static int xp = 0;
     static int score = 0;
     static List<Goal> goals = new List<Goal>();
-    static string filePath = "goallist.txt";
 
     static void Main(string[] args)
     {
-        LoadGoalsFromFile();
+        LoadFromFile();
 
         while (true)
         {
@@ -41,7 +40,7 @@ class Program
                     break;
 
                 case "4":
-                    SaveGoalsToFile();
+                    SaveToFile();
                     return;
 
                 default:
@@ -53,7 +52,10 @@ class Program
 
     static void CreateNewGoal()
     {
-        Console.Write("Enter goal type (Simple/Eternal/Checklist): ");
+        Console.WriteLine("What Kind Of Goal Do You Have?");
+        Console.WriteLine("1: Simple");
+        Console.WriteLine("2: Eternal");
+        Console.WriteLine("3: Checklist");
         string type = Console.ReadLine();
         Console.Write("Enter goal name: ");
         string name = Console.ReadLine();
@@ -62,11 +64,11 @@ class Program
         Console.Write("Enter points: ");
         int points = int.Parse(Console.ReadLine());
 
-        if (type == "Simple")
+        if (type == "1")
             goals.Add(new SimpleGoal(name, description, points));
-        else if (type == "Eternal")
+        else if (type == "2")
             goals.Add(new EternalGoal(name, description, points));
-        else if (type == "Checklist")
+        else if (type == "3")
         {
             Console.Write("Enter target count: ");
             int targetCount = int.Parse(Console.ReadLine());
@@ -75,7 +77,7 @@ class Program
             goals.Add(new ChecklistGoal(name, description, points, targetCount, bonusPoints));
         }
 
-        SaveGoalsToFile();  // Save goals after creation
+        SaveToFile();  
     }
 
     static void RecordGoalEvent()
@@ -94,11 +96,11 @@ class Program
             {
                 level++;
                 xp = 0;
-                Console.WriteLine($"Level Up! You are now at Level {level}!");
+                Console.WriteLine($"You've Reached {level}!");
             }
 
-            Console.WriteLine($"You earned {pointsEarned} points!");
-            SaveGoalsToFile();  // Save goals after recording an event
+            Console.WriteLine($"{pointsEarned} points earned!");
+            SaveToFile(); 
         }
         else
         {
@@ -116,38 +118,40 @@ class Program
 
         Console.WriteLine("\nPlayer Progress:");
         Console.WriteLine($"Level: {level}, XP: {xp}, Score: {score}");
+        
     }
 
-    static void LoadGoalsFromFile()
+    static void LoadFromFile()
+{
+    if (File.Exists("goallist.txt"))
     {
-        if (File.Exists(filePath))
+        var lines = File.ReadAllLines("goallist.txt");
+        foreach (var line in lines)
         {
-            var lines = File.ReadAllLines(filePath);
-            foreach (var line in lines)
+            string[] parts = line.Split(',');
+            if (parts.Length < 4) continue;
+
+            string type = parts[0];
+            string name = parts[1];
+            string description = parts[2];
+            int points = int.Parse(parts[3]);
+
+            if (type == "Simple")
+                goals.Add(new SimpleGoal(name, description, points));
+            else if (type == "Eternal")
+                goals.Add(new EternalGoal(name, description, points));
+            else if (type == "Checklist")
             {
-                string[] parts = line.Split(',');
-                if (parts.Length < 4) continue;
-
-                string type = parts[0];
-                string name = parts[1];
-                string description = parts[2];
-                int points = int.Parse(parts[3]);
-
-                if (type == "Simple")
-                    goals.Add(new SimpleGoal(name, description, points));
-                else if (type == "Eternal")
-                    goals.Add(new EternalGoal(name, description, points));
-                else if (type == "Checklist")
-                {
-                    int targetCount = int.Parse(parts[4]);
-                    int bonusPoints = int.Parse(parts[5]);
-                    goals.Add(new ChecklistGoal(name, description, points, targetCount, bonusPoints));
-                }
+                int targetCount = int.Parse(parts[4]);
+                int bonusPoints = int.Parse(parts[5]);
+                goals.Add(new ChecklistGoal(name, description, points, targetCount, bonusPoints));
             }
         }
     }
+}
 
-    static void SaveGoalsToFile()
+
+    static void SaveToFile()
     {
         List<string> lines = new List<string>();
         foreach (var goal in goals)
@@ -159,6 +163,6 @@ class Program
             }
             lines.Add(line);
         }
-        File.WriteAllLines(filePath, lines);
+        File.AppendAllLines("goallist.txt", lines);
     }
 }

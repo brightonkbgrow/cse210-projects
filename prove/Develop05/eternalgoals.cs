@@ -10,9 +10,9 @@ public class EternalGoal : Goal
         if (!IsCompleted)
         {
             IsCompleted = true;
-            return Points;  // Return points on completion (can reset completion if needed)
+            return Points; 
         }
-        return Points;  // Keep rewarding points on every record
+        return Points; 
     }
 
     public override string DisplayStatus()
