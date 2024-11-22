@@ -16,12 +16,12 @@ class ChecklistGoal : Goal
     {
         if (CurrentCount < TargetCount)
         {
-            CurrentCount++; // Increment progress
+            CurrentCount++; 
             if (CurrentCount == TargetCount)
-                return Points + BonusPoints; // Full bonus when complete
-            return Points; // Normal points otherwise
+                return Points + BonusPoints; 
+            return Points; 
         }
-        return 0; // No points if already completed
+        return 0; 
     }
 
     public override string DisplayStatus()

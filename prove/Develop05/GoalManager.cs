@@ -6,7 +6,7 @@ class GoalManager
 {
     private const string FileName = "goallist.txt";
 
-    // Loads goals from the file into the program
+
     public static List<Goal> LoadGoals()
     {
         var goals = new List<Goal>();
@@ -43,7 +43,7 @@ class GoalManager
         return goals;
     }
 
-    // Saves the current state of all goals back to the file
+
     public static void SaveGoals(List<Goal> goals)
     {
         var lines = new List<string>();
@@ -61,6 +61,6 @@ class GoalManager
             lines.Add(line);
         }
 
-        File.WriteAllLines(FileName, lines); // Update the file with current data
+        File.WriteAllLines(FileName, lines);
     }
 }

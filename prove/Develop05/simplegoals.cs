@@ -2,7 +2,6 @@ class SimpleGoal : Goal
 {
     public bool SimpleGoalIsCompleted { get; private set; }
 
-    // Updated constructor to include isCompleted
     public SimpleGoal(string name, string description, int points, bool isCompleted = false)
         : base(name, description, points)
     {
@@ -13,10 +12,10 @@ class SimpleGoal : Goal
     {
         if (!IsCompleted)
         {
-            IsCompleted = true; // Mark as completed
-            return Points; // Return the points
+            IsCompleted = true; 
+            return Points;
         }
-        return 0; // No points if already completed
+        return 0;
     }
 
     public override string DisplayStatus()

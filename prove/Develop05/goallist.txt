@@ -1,1 +1,5 @@
-SimpleGoal,do,not,123,False
+SimpleGoal,r,r,12
+SimpleGoal,goal,help me please,123
+SimpleGoal,goal,help me please,123
+Progress,1,0,0
+SimpleGoal,tray,no,123
