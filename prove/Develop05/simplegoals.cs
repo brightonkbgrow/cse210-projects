@@ -1,22 +1,26 @@
-using System;
-
-public class SimpleGoal : Goal
+class SimpleGoal : Goal
 {
-    public SimpleGoal(string name, string description, int points)
-        : base(name, description, points) { }
+    public bool SimpleGoalIsCompleted { get; private set; }
+
+    // Updated constructor to include isCompleted
+    public SimpleGoal(string name, string description, int points, bool isCompleted = false)
+        : base(name, description, points)
+    {
+        SimpleGoalIsCompleted = isCompleted;
+    }
 
     public override int RecordEvent()
     {
         if (!IsCompleted)
         {
-            IsCompleted = true;
-            return Points; 
+            IsCompleted = true; // Mark as completed
+            return Points; // Return the points
         }
-        return 0; 
+        return 0; // No points if already completed
     }
 
     public override string DisplayStatus()
     {
-        return IsCompleted ? $"[X] {Name}: {Description} (Completed)" : $"[ ] {Name}: {Description}";
+        return $"{Name,-15} {Description,-25} {Points,-10} {(IsCompleted ? "Completed" : "Not Completed")}";
     }
 }

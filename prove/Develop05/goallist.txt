@@ -1,4 +1,1 @@
-SimpleGoal,doot,ddde,333
-SimpleGoal,doot,ddde,333
-SimpleGoal,test,123,123
-SimpleGoal,test2,2,543
+SimpleGoal,do,not,123,False
