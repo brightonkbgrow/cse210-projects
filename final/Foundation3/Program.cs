@@ -18,7 +18,7 @@ class Program
             Console.WriteLine("Standard Details:\n" + evt.GetStandardDetails() + "\n");
             Console.WriteLine("Full Details:\n" + evt.GetFullDetails() + "\n");
             Console.WriteLine("Short Description:\n" + evt.GetShortDescription() + "\n");
-            Console.WriteLine("-------------------------------------------\n");
+            Console.WriteLine("-----------------------------------------------\n");
         }
     }
 }
